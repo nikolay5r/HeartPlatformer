@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MovementResource" load_steps=2 format=3 uid="uid://d1e70hj8udrnj"]
+
+[ext_resource type="Script" path="res://scripts/movement_data.gd" id="1_vxa4g"]
+
+[resource]
+script = ExtResource("1_vxa4g")
+speed = 100.0
+acceleration = 800.0
+friction = 600.0
+jump_velocity = -300.0
+gravity_scale = 1.0
+air_acceleration = 350.0
+air_resistance = 300.0
+double_jump_velocity_scale = 0.8

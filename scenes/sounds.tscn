@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd4gtth8fnsm8"]
+
+[ext_resource type="AudioStream" uid="uid://ck076qs2t1nlc" path="res://assets/sounds/251461__joshuaempyre__arcade-music-loop.wav" id="1_2pmp1"]
+[ext_resource type="Script" path="res://scripts/sounds.gd" id="1_pmf8j"]
+[ext_resource type="AudioStream" uid="uid://qnn2ac40ynv8" path="res://assets/sounds/677860__el_boss__ui-button-click-snap.wav" id="2_csome"]
+[ext_resource type="AudioStream" uid="uid://dr0f4aftv8m6u" path="res://assets/sounds/death_sound.wav" id="4_dvkow"]
+[ext_resource type="AudioStream" uid="uid://b6u3xwdh46cc" path="res://assets/sounds/402767__matrixxx__retro-coin-03.wav" id="5_wbx24"]
+[ext_resource type="AudioStream" uid="uid://b4gw03g7w8bac" path="res://assets/sounds/727650__cjspellsfish__basic-retro-jump.wav" id="6_uq8gi"]
+
+[node name="Sounds" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_pmf8j")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2pmp1")
+volume_db = -22.0
+autoplay = true
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_csome")
+volume_db = 5.0
+pitch_scale = 0.7
+autoplay = true
+
+[node name="PlayerDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dvkow")
+volume_db = -22.0
+pitch_scale = 1.2
+
+[node name="CollectHeart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wbx24")
+volume_db = -30.0
+
+[node name="PlayerJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_uq8gi")
+volume_db = -15.0
+pitch_scale = 1.2

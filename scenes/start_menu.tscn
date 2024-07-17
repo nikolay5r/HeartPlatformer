@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2coa8gjbrgdg"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ab66d"]
+[ext_resource type="PackedScene" uid="uid://pkfqah6pm6b4" path="res://scenes/scrolling_background_tile_map.tscn" id="2_tjqhx"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ab66d")
+
+[node name="CenterCotainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollingBackground" parent="CenterCotainer" instance=ExtResource("2_tjqhx")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterCotainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="CenterCotainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Play"
+
+[node name="HowToPlayButton" type="Button" parent="CenterCotainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "How to play
+"
+
+[node name="QuitButton" type="Button" parent="CenterCotainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+text = "Quit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MusicButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Mute Music"
+
+[node name="SoundsButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Mute Sounds
+"
+
+[connection signal="pressed" from="CenterCotainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterCotainer/VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="CenterCotainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SoundsButton" to="." method="_on_sounds_button_pressed"]

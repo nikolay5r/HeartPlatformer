@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm4pcu2ok1w0m"]
+
+[ext_resource type="Script" path="res://scripts/level_selection_menu.gd" id="1_n38v1"]
+[ext_resource type="PackedScene" uid="uid://pkfqah6pm6b4" path="res://scenes/scrolling_background_tile_map.tscn" id="1_sphve"]
+[ext_resource type="PackedScene" uid="uid://r1fd1rr8ir6u" path="res://scenes/level_selector.tscn" id="3_2g3hi"]
+
+[node name="LevelSelectionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n38v1")
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("1_sphve")]
+
+[node name="LevelSelectorContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 60.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 42
+theme_override_constants/v_separation = 10
+alignment = 1
+
+[node name="LevelSelector" parent="LevelSelectorContainer" instance=ExtResource("3_2g3hi")]
+layout_mode = 2
+level_number = 1
+level_scene_path = "res://scenes/levels/level_one.tscn"
+
+[node name="LevelSelector2" parent="LevelSelectorContainer" instance=ExtResource("3_2g3hi")]
+layout_mode = 2
+level_number = 2
+level_scene_path = "res://scenes/levels/level_two.tscn"
+
+[node name="LevelSelector3" parent="LevelSelectorContainer" instance=ExtResource("3_2g3hi")]
+layout_mode = 2
+level_number = 3
+level_scene_path = "res://scenes/levels/level_three.tscn"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -25.0
+offset_right = 27.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

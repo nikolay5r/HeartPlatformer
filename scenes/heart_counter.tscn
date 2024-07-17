@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c36kj8lonjvhq"]
+
+[ext_resource type="Script" path="res://scripts/heart_counter.gd" id="1_tl7n3"]
+
+[node name="HeartCounter" type="CanvasLayer"]
+script = ExtResource("1_tl7n3")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.01
+anchor_bottom = 0.01
+offset_right = 30.0
+offset_bottom = 9.0
+text = "10/20
+"
+horizontal_alignment = 1
+vertical_alignment = 1

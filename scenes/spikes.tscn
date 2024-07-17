@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://tox4gordm5ia"]
+
+[ext_resource type="Texture2D" uid="uid://m5tpaydkk1qe" path="res://assets/images/spikes.png" id="1_tqa71"]
+[ext_resource type="PackedScene" uid="uid://bln8ophc2hf14" path="res://scenes/hazard_area.tscn" id="2_qi7gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k27ux"]
+size = Vector2(16, 8)
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tqa71")
+
+[node name="HazardArea" parent="." instance=ExtResource("2_qi7gw")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_k27ux")
+debug_color = Color(1, 0, 0.117647, 0.419608)
+
+[connection signal="body_entered" from="HazardArea" to="." method="_on_hazard_area_body_entered"]

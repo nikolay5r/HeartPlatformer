@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bawb8fat4riod"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xa684"]
+[ext_resource type="PackedScene" uid="uid://bc26mlewf0td" path="res://scenes/player.tscn" id="2_2xq03"]
+[ext_resource type="PackedScene" uid="uid://c36kj8lonjvhq" path="res://scenes/heart_counter.tscn" id="4_1njgj"]
+[ext_resource type="PackedScene" uid="uid://byesq4y1u6oh1" path="res://scenes/level_timer.tscn" id="5_d08at"]
+[ext_resource type="PackedScene" uid="uid://btr82wsppjoty" path="res://scenes/pause_screen.tscn" id="5_omdkb"]
+[ext_resource type="PackedScene" uid="uid://ca66tyym2iujv" path="res://scenes/level_tile_map.tscn" id="5_xfp5u"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_xa684")
+
+[node name="LevelTileMap" parent="." instance=ExtResource("5_xfp5u")]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_2xq03")]
+floor_max_angle = 0.872665
+
+[node name="Hearts" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Spikes" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="HeartCounter" parent="." instance=ExtResource("4_1njgj")]
+
+[node name="LevelTimer" parent="." instance=ExtResource("5_d08at")]
+
+[node name="PauseScreen" parent="." instance=ExtResource("5_omdkb")]
+visible = false
